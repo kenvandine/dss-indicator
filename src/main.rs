@@ -5,27 +5,23 @@ use appindicator3::{Indicator, IndicatorCategory};
 use gtk::prelude::*;
 
 fn check_running() -> bool {
-    let status = Command::new("microk8s.status")
-        .arg("|")
-        .arg("grep")
-        .arg("-v")
-        .arg("not")
+    let status = Command::new("dss-ready")
         .status()
-        .expect("failed to get microk8s status");
-    !status.success()
+        .expect("failed to check status");
+    status.success()
 }
 
 fn start_dss() -> bool {
-    let status = Command::new("microk8s.start")
+    let status = Command::new("dss-start")
         .status()
-        .expect("failed to start microk8s");
+        .expect("failed to start");
     status.success()
 }
 
 fn stop_dss() -> bool {
-    let status = Command::new("microk8s.stop")
+    let status = Command::new("dss-stop")
         .status()
-        .expect("failed to stop microk8s");
+        .expect("failed to stop");
     status.success()
 }
 

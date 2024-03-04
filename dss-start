@@ -1,0 +1,4 @@
+#!/bin/bash
+# stop all DSS workloads
+microk8s.kubectl scale deployment --all --replicas=1 -n dss
+exit $?

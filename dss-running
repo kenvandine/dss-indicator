@@ -1,0 +1,4 @@
+#!/bin/bash
+# get list of all ready Deployments
+microk8s.kubectl get deployments -n dss -o jsonpath='{range .items[?(@.status.readyReplicas==1)]}{.metadata.name}{"\n"}{end}'
+exit $?
