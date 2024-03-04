@@ -130,8 +130,8 @@ fn main() {
             mlflow_item.show_all();
             notebook_item.show_all();
         } else {
-            mlflow_item.hide();
-            notebook_item.hide();
+            //mlflow_item.hide();
+            //notebook_item.hide();
         }
     }));
 
